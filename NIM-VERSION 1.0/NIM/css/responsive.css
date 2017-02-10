@@ -16,7 +16,6 @@ VERSION : 1.1
     .ramsh-menu ul li:last-child::after{
         display:none;
     }
-    
 }
 
 
