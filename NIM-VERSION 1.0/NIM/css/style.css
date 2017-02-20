@@ -1,8 +1,4 @@
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	IMPORT FONTS
-++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-@import url('http://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100');
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800');
+
 
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -372,15 +368,13 @@ color:#fff;
 /*	MAIN HEADING
 ------------------------------*/
 
-
-
 .main-heading
 {
    background: url(../images/fundo1.png) center center no-repeat;
 	background-size:cover;
 	background-attachment: fixed;
 	color: #cfcfcf;
-    margin-top:80px;
+    margin-top:70px;
 }
 
 .overlay{
@@ -438,7 +432,7 @@ p.lead
 	margin-left: 6px;
 }
 .main-heading-text {
-	font-size: 16px;
+	font-size: 28px;
 	color: #ffffff;
 	margin-bottom: 20px;
 }
@@ -459,8 +453,6 @@ p.lead
     padding:60px 0px;
   
 }
-
-
 
  .about-box {
 	overflow: hidden;
@@ -483,7 +475,7 @@ p.lead
         padding-top:10px;
 }
 
-/*----------------OUR WORKS
+/*----------------Empresas incubadas
 
 -------------------------------------------------------*/
 
@@ -597,41 +589,11 @@ p.lead
     color:#000;
 }
 
-/*----------------INSPIRATION
-
--------------------------------------------------------*/
-.inspiration
-{
- background:url("../images/img-1.jpg");
- background-position: center center;
- background-attachment: fixed;
- background-size:cover;
-}
-.inspiration >.overlay.container
-{
-    padding:80px 0px;
-}
-
-.subheading h4 {
-	color: #ffffff;
-	font-style: italic;
-	font-family: 'Roboto Slab', serif;
-}
-.intermediate-container .heading h2 {
-	font-size: 40px;
-	line-height: 47px;
-	text-transform: uppercase;
-	margin-top: 30px;
-	color: #ffffff;
-	margin-bottom: 20px;
-	font-weight: 700;
-}
-
 /*	TESTIMONIAL
 ------------------------------*/
 .client-testimonial
 {
- background:url("../images/img-2.jpg");
+ background:url("../images/img-4.jpg");
  background-position: center center;
  background-attachment: fixed;
  background-size:cover;
@@ -661,7 +623,7 @@ p.lead
 /*	STATS
 ------------------------------*/
 .our-stats {
-    background: #35434f;
+    background: #6f6f6f;
 }
 
 .our-stats>.container
@@ -756,7 +718,7 @@ font-family: 'Roboto Slab', serif;
 }
 /* Pricing header */
 .price .header2 {
-    background-color: #6b4790;
+    background-color: #f17a06;
     color: white;
     font-size: 25px;
 }
@@ -938,5 +900,3 @@ font-family: 'Roboto Slab', serif;
 
   background:#000;
 }
-
-

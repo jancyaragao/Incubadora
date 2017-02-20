@@ -12,13 +12,13 @@
 
         var settings = $.extend({
 
-            //arbitrary data to pass to fn
+            //dados arbitrários para passar para fn
             data: undefined,
 
-            //call fn only on the first fappear?
+            //chama fn somente no primeiro fappear?
             one: true,
 
-            // X & Y accuracy
+            // Precisão X & Y
             accX: 0,
             accY: 0
 
@@ -28,30 +28,30 @@
 
             var t = $(this);
 
-            //whether the element is currently visible
+            //se o elemento está atualmente visível
             t.fappeared = false;
 
             if (!fn) {
 
-                //trigger the custom event
+                //acionar o evento personalizado
                 t.trigger('fappear', settings.data);
                 return;
             }
 
             var w = $(window);
 
-            //fires the fappear event when appropriate
+            //aciona o evento fappear quando apropriado
             var check = function () {
 
-                //is the element hidden?
+                //o elemento está oculto?
                 if (!t.is(':visible')) {
 
-                    //it became hidden
+                    //ficou oculto
                     t.fappeared = false;
                     return;
                 }
 
-                //is the element inside the visible window?
+                //É o elemento dentro da janela visível?
                 var a = w.scrollLeft();
                 var b = w.scrollTop();
                 var o = t.offset();
@@ -70,70 +70,70 @@
                     x + tw + ax >= a &&
                     x <= a + ww + ax) {
 
-                    //trigger the custom event
+                    //Acionar o evento personalizado
                     if (!t.fappeared) t.trigger('fappear', settings.data);
 
                 } else {
 
-                    //it scrolled out of view
+                    //Deslocou-se para fora da vista
                     t.fappeared = false;
                 }
             };
 
-            //create a modified fn with some additional logic
+            //Criar um fn modificado com alguma lógica adicional
             var modifiedFn = function () {
 
-                //mark the element as visible
+                //Marcar o elemento como visível
                 t.fappeared = true;
 
-                //is this supposed to happen only once?
+                //Isso é pode acontecer apenas uma vez?
                 if (settings.one) {
 
-                    //remove the check
+                    //Remover a verificação
                     w.unbind('scroll', check);
                     var i = $.inArray(check, $.fn.fappear.checks);
                     if (i >= 0) $.fn.fappear.checks.splice(i, 1);
                 }
 
-                //trigger the original fn
+                //Acionar o fn original
                 fn.apply(this, arguments);
             };
 
-            //bind the modified fn to the element
+            //Ligam o fn modificado ao elemento
             if (settings.one) t.one('fappear', settings.data, modifiedFn);
             else t.bind('fappear', settings.data, modifiedFn);
 
-            //check whenever the window scrolls
+            //Verificar sempre que a janela rolar
             w.scroll(check);
 
-            //check whenever the dom changes
+            //Verificar sempre que o dom muda
             $.fn.fappear.checks.push(check);
 
-            //check now
+            //Verificar agora
             (check)();
         });
     };
 
-    //keep a queue of fappearance checks
+    //Manter uma fila de verificações de falhas
     $.extend($.fn.fappear, {
 
         checks: [],
         timeout: null,
 
-        //process the queue
+        //Processar a fila
         checkAll: function () {
             var length = $.fn.fappear.checks.length;
             if (length > 0) while (length--) ($.fn.fappear.checks[length])();
         },
 
-        //check the queue asynchronously
+        // Verificar a fila de forma assíncrona
         run: function () {
             if ($.fn.fappear.timeout) clearTimeout($.fn.fappear.timeout);
             $.fn.fappear.timeout = setTimeout($.fn.fappear.checkAll, 20);
         }
     });
 
-    //run checks when these methods are called
+    //Executar verificações quando esses métodos são chamados
     $.each(['append', 'prepend', 'after', 'before', 'attr',
         'removeAttr', 'addClass', 'removeClass', 'toggleClass',
         'remove', 'css', 'show', 'hide'], function (i, n) {
@@ -152,10 +152,10 @@
 
 (function ($) {
     $.fn.countTo = function (options) {
-        // merge the default plugin settings with the custom options
+        // mescla as configurações de plug-in padrão com as opções personalizadas
         options = $.extend({}, $.fn.countTo.defaults, options || {});
 
-        // how many times to update the value, and how much to increment the value on each update
+        // quantas vezes para atualizar o valor, e quanto para incrementar o valor em cada atualização
         var loops = Math.ceil(options.speed / options.refreshInterval),
             increment = (options.to - options.from) / loops;
 
@@ -187,12 +187,12 @@
     };
 
     $.fn.countTo.defaults = {
-        from: 0,  // the number the element should start at
-        to: 100,  // the number the element should end at
-        speed: 1000,  // how long it should take to count between the target numbers
-        refreshInterval: 100,  // how often the element should be updated
-        decimals: 0,  // the number of decimal places to show
-        onUpdate: null,  // callback method for every time the element is updated,
-        onComplete: null,  // callback method for when the element finishes updating
+        from: 0,  // o número do elemento deve começar em
+        to: 100,  // o número que o elemento deve terminar em
+        speed: 1000,  // quanto tempo deve demorar para contar entre os números de destino
+        refreshInterval: 100,  // quantas vezes o elemento deve ser atualizado
+        decimals: 0,  // o número de casas decimais a mostrar
+        onUpdate: null,  // método callback para cada vez que o elemento é atualizado,
+        onComplete: null,  // método callback para quando o elemento termina a atualização
     };
 })(jQuery);	
