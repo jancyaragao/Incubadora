@@ -64,7 +64,7 @@ VERSION : 1.1
         }, {offset: "100px"});
     });
    },
-   menuAnimation:function()
+  /* menuAnimation:function()
    {
        $(window).scroll(function()
        {
@@ -87,7 +87,7 @@ VERSION : 1.1
       }
        }
        )
-   },
+   }, */
    
    
     navigate:function()
